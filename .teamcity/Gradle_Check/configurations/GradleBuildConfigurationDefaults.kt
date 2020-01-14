@@ -2,6 +2,7 @@ package configurations
 
 import common.Os
 import common.applyDefaultSettings
+import common.attachFileLeakDetector
 import common.buildToolGradleParameters
 import common.buildToolParametersString
 import common.checkCleanM2
@@ -175,6 +176,9 @@ fun applyTestDefaults(model: CIBuildModel, buildType: BaseGradleBuildType, gradl
 
     buildType.steps {
         extraSteps()
+        if (os == Os.windows) {
+            attachFileLeakDetector()
+        }
         checkCleanM2(os)
         verifyTestFilesCleanup(daemon, os)
     }
