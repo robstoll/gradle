@@ -98,7 +98,10 @@ fun BuildSteps.attachFileLeakDetector() {
         executionMode = BuildStep.ExecutionMode.ALWAYS
         scriptContent = """
             del gradle.properties
+            del buildSrc\gradle.properties
             rename gradle.windows.properties gradle.properties
+            copy gradle.properties buildSrc\
+
         """.trimIndent()
     }
 }
