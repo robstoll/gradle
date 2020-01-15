@@ -17,12 +17,9 @@
 package org.gradle.initialization;
 
 import org.gradle.api.internal.project.taskfactory.TaskIdentity;
-import org.gradle.execution.plan.Node;
 import org.gradle.internal.taskgraph.PlannedTask;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.SortedSet;
 
 public class DefaultPlannedTask implements PlannedTask{
     private final TaskIdentity<?> taskIdentity;
