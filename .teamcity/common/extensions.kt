@@ -92,19 +92,6 @@ fun BuildType.applyDefaultSettings(os: Os = Os.linux, timeout: Int = 30, vcsRoot
     }
 }
 
-fun BuildSteps.attachFileLeakDetector() {
-    script {
-        name = "ATTACH_FILE_LEAK_DETECTOR"
-        executionMode = BuildStep.ExecutionMode.ALWAYS
-        scriptContent = """
-            del gradle.properties
-            del buildSrc\gradle.properties
-            rename gradle.windows.properties gradle.properties
-            copy gradle.properties buildSrc\
-
-        """.trimIndent()
-    }
-}
 
 fun BuildSteps.checkCleanM2(os: Os = Os.linux) {
     script {
@@ -113,6 +100,7 @@ fun BuildSteps.checkCleanM2(os: Os = Os.linux) {
         scriptContent = if (os == Os.windows) m2CleanScriptWindows else m2CleanScriptUnixLike
     }
 }
+
 
 fun buildToolGradleParameters(daemon: Boolean = true, isContinue: Boolean = true, os: Os = Os.linux): List<String> =
     listOf(
