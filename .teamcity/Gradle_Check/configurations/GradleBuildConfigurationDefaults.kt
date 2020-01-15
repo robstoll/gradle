@@ -133,7 +133,7 @@ fun BuildType.dumpOpenFiles() {
             name = "DUMP_OPEN_FILES"
             executionMode = BuildStep.ExecutionMode.ALWAYS
             scriptContent = """
-            %windows.java11.openjdk.64bit%\bin\java gradle\DumpOpenFiles.java
+            "%windows.java11.openjdk.64bit%\bin\java" gradle\DumpOpenFiles.java
         """.trimIndent()
         }
     }
