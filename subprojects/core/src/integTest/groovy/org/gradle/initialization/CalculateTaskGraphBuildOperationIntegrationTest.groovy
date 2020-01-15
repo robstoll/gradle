@@ -133,7 +133,6 @@ class CalculateTaskGraphBuildOperationIntegrationTest extends AbstractIntegratio
         operation().result.taskPlan[3].finalizedBy.taskPath == [":lastTask"]
         operation().result.taskPlan[3].mustRunAfter.taskPath == [":firstTask"]
         operation().result.taskPlan[3].shouldRunAfter.taskPath == [":secondTask"]
-        operation().result.taskPlan[4].dependencies.taskPath == [":someTask"]
     }
 
 
