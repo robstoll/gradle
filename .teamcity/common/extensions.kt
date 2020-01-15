@@ -92,7 +92,6 @@ fun BuildType.applyDefaultSettings(os: Os = Os.linux, timeout: Int = 30, vcsRoot
     }
 }
 
-
 fun BuildSteps.checkCleanM2(os: Os = Os.linux) {
     script {
         name = "CHECK_CLEAN_M2"
@@ -100,7 +99,6 @@ fun BuildSteps.checkCleanM2(os: Os = Os.linux) {
         scriptContent = if (os == Os.windows) m2CleanScriptWindows else m2CleanScriptUnixLike
     }
 }
-
 
 fun buildToolGradleParameters(daemon: Boolean = true, isContinue: Boolean = true, os: Os = Os.linux): List<String> =
     listOf(
